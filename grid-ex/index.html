@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando Grid</title>
+</head>
+<style>
+    body{
+        /* overflow: hidden; */
+    }
+    .grid-exercicio {
+        display: grid;
+        grid-template-areas:
+            "header header header"
+            "nav main aside"
+            "footer footer footer";
+        grid-template-columns: 150px 1fr 200px;
+        grid-template-rows: 60px 1fr 40px;
+        gap: 15px;
+        height: 100vh;
+    }
+
+    header {
+        grid-area: header;
+        background: #b3cde0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        font-size: 14px;
+    }
+
+    nav {
+        grid-area: nav;
+        background: #6497b1;
+        padding: 15px;
+        color: white;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    main {
+        grid-area: main;
+        background: #005b96;
+        color: #000;
+        padding: 20px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* teste: mude para 2fr 1fr etc */
+        gap: 10px;
+        /* teste: aumente ou diminua */
+        justify-items: center;
+        /* teste: start | end | stretch */
+        align-items: center;
+        /* teste: start | end | stretch */
+        grid-auto-flow: dense;
+    }
+
+    aside {
+        grid-area: aside;
+        background: #03396c;
+        color: #fff;
+        padding: 15px;
+    }
+
+    aside a{
+        color: #fff;
+        text-decoration: none;
+    }
+
+    footer {
+        grid-area: footer;
+        background: #011f4b;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .box {
+        background: white;
+        padding: 15px;
+        border-radius: 6px;
+        text-align: center;
+    }
+
+    /* Testando grid-column e grid-row */
+    .box.grande {
+        grid-column: span 2;
+        /* ocupa 2 colunas */
+        grid-row: span 2;
+        /* ocupa 2 linhas */
+    }
+</style>
+
+<body>
+    <div class="grid-exercicio">
+        <header>
+            <h1>Dashboard</h1>
+        </header>
+        <nav>
+            <p><a href="#">🏠 Home</a></p>
+            <p><a href="#">📈 Relatórios</a></p>
+            <p><a href="#">⚙️ Config</a></p>
+        </nav>
+        <main>
+            <div class="box">💰 Vendas</div>
+            <div class="box grande">👥 Usuários (ocupa + espaço)</div>
+            <div class="box">📦 Pedidos</div>
+            <div class="box">⭐ Avaliações</div>
+            <div class="box">🛒 Carrinhos</div>
+        </main>
+        <aside>
+            <h4>Notificações</h4>
+            <p><a href="#">🔔 2 novas mensagens</a></p>
+            <p><a href="#">✅ Backup concluído</a></p>
+        </aside>
+        <footer>
+            &copy; 2025 - Meu Dashboard
+        </footer>
+    </div>
+</body>
+
+</html>
